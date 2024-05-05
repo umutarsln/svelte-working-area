@@ -1,13 +1,20 @@
 <script>
+	import '../app.pcss';
 	import Header from './Header.svelte';
 	import './styles.css';
+	import { initDB } from '$lib/js/indexeddb.js';
+	import { onMount } from 'svelte';
+
+  onMount(async () => {
+    await initDB();
+  });
 </script>
 
 <div class="app">
-	<Header />
+	<Header></Header>
 
 	<main>
-		<slot />
+		<slot></slot>
 	</main>
 
 	<footer>
